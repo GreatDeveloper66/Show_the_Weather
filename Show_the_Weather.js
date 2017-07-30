@@ -71,11 +71,10 @@ $(document).ready(function() {
       long +
       "&key=" +
       googleapiKey;
-    
+
     $.ajax({
       url: addressRequest,
       error: function() {
-        
         $("#CityState").html("Google Api didn't work");
       },
       success: function(data) {
@@ -96,13 +95,12 @@ $(document).ready(function() {
 
   var getWeatherData = function(position) {
     apikey = "3664a9b99ec74bd5365fbc7a9cf34371";
-    lat = position.coords.latitude;
-    long = position.coords.longitude;
+    lat = Math.round(position.coords.latitude);
+    long = Math.round(position.coords.longitude);
 
     getAddress();
 
     api = "https://api.forecast.io/forecast/" + apikey + "/" + lat + "," + long;
-    alert(api);
     $.ajax({
       url: api,
       jsonp: "callback",
@@ -123,10 +121,14 @@ $(document).ready(function() {
         condition = data.currently.icon;
         windSpeed = data.currently.windSpeed;
 
-        $("#temperature").html('<i class="fa fa-thermometer-full" aria-hidden="true"></i>' + ' ' + tempFarenheit + ' &deg;F');
+        $("#temperature").html(
+          '<i class="fa fa-thermometer-full" aria-hidden="true"></i>' +
+            " " +
+            tempFarenheit +
+            " &deg;F"
+        );
         $("#humidity").html("Humidity: " + humidity);
 
-       
         if (chanceofPrecipitation === 0) {
           $("#Precipitation").html("Clear Skys");
         } else {
@@ -135,11 +137,19 @@ $(document).ready(function() {
           );
         }
 
-        $("#Pressure").html('<i class="fa fa-angle-double-down" aria-hidden="true"></i>' + "Pressure: " + pressure + " milibars");
+        $("#Pressure").html(
+          '<i class="fa fa-angle-double-down" aria-hidden="true"></i>' +
+            "Pressure: " +
+            pressure +
+            " milibars"
+        );
 
         $("#apparentemperature").html(
           "Feels Like " + apparentTempFarenheit + " &deg;F"
         );
+
+        $("#coordinates").html(
+           '<i class="fa fa-globe" aria-hidden="true"></i>' + ' ' + lat + '&deg; N' + long + '&deg; W');
 
         //Choose icon based on weather conditions
         switch (condition) {
@@ -186,9 +196,8 @@ $(document).ready(function() {
         }
         weather_icon_html = '<img src="' + weather_icon + '"/>';
         $("#Icon").html(weather_icon_html);
-        
-         $("#Condition").html(weatherSummary);
-        
+
+        $("#Condition").html(weatherSummary);
       }
     });
   };
@@ -197,12 +206,22 @@ $(document).ready(function() {
     celsiusOn = !celsiusOn;
 
     if (celsiusOn) {
-      $("#temperature").html('<i class="fa fa-thermometer-full" aria-hidden="true"></i>' + ' ' + tempCelsius + ' &deg;C');
+      $("#temperature").html(
+        '<i class="fa fa-thermometer-full" aria-hidden="true"></i>' +
+          " " +
+          tempCelsius +
+          " &deg;C"
+      );
       $("#apparentemperature").html(
         "Feels Like " + apparentTempCelsius + " &deg;C"
       );
     } else {
-      $("#temperature").html('<i class="fa fa-thermometer-full" aria-hidden="true"></i>' + ' ' + tempFarenheit + ' &deg;F');
+      $("#temperature").html(
+        '<i class="fa fa-thermometer-full" aria-hidden="true"></i>' +
+          " " +
+          tempFarenheit +
+          " &deg;F"
+      );
       $("#apparentemperature").html(
         "Feels Like " + apparentTempFarenheit + " &deg;F"
       );
