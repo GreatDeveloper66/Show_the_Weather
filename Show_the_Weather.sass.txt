@@ -1,0 +1,34 @@
+$font-size: 15px
+$font-size-tablet: 17px
+$font-size-desktop: 20px
+$font-size-large: 22px
+$font-size-deg: 28px
+
+$font-family: Roboto
+$font-color: rgba(41,51,51,0.8)
+$font-style: normal
+$font-weight: 800
+$font-weight-deg: 1200
+
+$font-color-deg: rgba(255,50,50,1)
+
+
+$card-width: 15vw
+
+=font-mixin($size,$family,$fcolor,$style,$weight,$textcase)
+  font-size: $size
+  font-family: $family
+  color: $fcolor
+  font-style: $style
+  font-weight: $weight
+  text-transform: $textcase
+  
+p
+  +font-mixin($font-size, $font-family, $font-color, $font-style, $font-weight, uppercase)
+
+footer p
+  +font-mixin($font-size-deg,$font-family,$font-color-deg,$font-style,$font-weight, uppercase)
+    
+.w3-card-4
+  width: $card-width
+  
