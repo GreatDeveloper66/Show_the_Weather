@@ -57,8 +57,29 @@ var Weather_Sunset =
   "https://www.dropbox.com/s/2cd5iifkzn7wh8q/weather_sunset.svg?raw=1";
 var Generic = "https://www.dropbox.com/s/kgs634yu0edkgpe/weather.svg?raw=1";
 
+var daysoftheWeek = [
+  "SUN",
+  "MON",
+  "TUE",
+  "WED",
+  "THU",
+  "FRI",
+  "SAT",
+  "SUN",
+  "MON"
+];
+var todaysDay = new Date().getDay();
+var Today = daysoftheWeek[todaysDay];
+var Tommorow = daysoftheWeek[todaysDay + 1];
+var afterTommorow = daysoftheWeek[todaysDay + 2];
+
 $(document).ready(function() {
-  //first get location information
+
+  //set current days
+  $("#today").text(Today);
+  $("#tommorow").text(Tommorow);
+  $("#aftertommorow").text(afterTommorow);
+  //get location information
   //make a call to freeoip
   //create Coordinates
 
