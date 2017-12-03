@@ -20,6 +20,37 @@ footer p {
   width: 15vw;
 }
 
+span {
+  display: block;
+  text-align: center;
+  font-family: Roboto;
+  text-transform: uppercase;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgba(200, 187, 151, 0.70);
+}
+
+span h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+span h3 {
+  font-size: 20px;
+}
+
+span p {
+  font-size: 12px;
+}
+
+span img {
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  width: 75px;
+  height: 75px;
+}
 
 /* The switch - the box around the slider */
 .switch {

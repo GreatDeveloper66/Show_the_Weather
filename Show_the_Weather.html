@@ -40,6 +40,7 @@
 
   <script type="text/javascript" src="Show_the_Weather.js"></script>
 
+
 </head>
 
 <body>
@@ -50,20 +51,27 @@
         <div class="w3-card-4">
   <div class="w3-display-container w3-text-white">
     <img src="https://www.dropbox.com/s/8ywpfbritcrmo9d/img_london.jpg?raw=1" alt="Lights" style="width:100%">
-    <div class="w3-xlarge w3-display-bottomleft w3-padding"><span id="Locale">LONDON</span> 60&deg; F</div>
+    <div class="w3-xlarge w3-display-bottomleft w3-padding">
+      <span id="CityState"></span> 
+      <span id="temperature"></span>
+      <span id="coordinates"></span>
+    </div>
   </div>
   <div class="w3-row">
     <div class="w3-third w3-center">
-      <h3 id="today">MON</h3>
-      <img src="img_weather_sun.jpg" alt="sun">
+      <span><h3 id="today"></h3></span>
+      <span id="todayicon"></span>
+      <span id="todaytemps"></span>
     </div>
     <div class="w3-third w3-center">
-      <h3 id="tommorow">TUE</h3>
-      <img src="img_weather_cloud.jpg" alt="cloud">
+      <span><h3 id="tommorow"></h3></span>
+      <span id="tommorowicon"></span>
+      <span id="tommorowtemps"></span>
     </div>
     <div class="w3-third w3-center w3-margin-bottom">
-      <h3 id="aftertommorow">WED</h3>
-      <img src="img_weather_clouds.jpg" alt="clouds">
+      <span><h3 id="aftertommorow"></h3></span>
+      <span id="dayaftericon"></span>
+      <span id="dayaftertemps"></span>
     </div>
   </div>
 <div class="w3-row w3-center w3-yellow">
@@ -83,6 +91,9 @@
       </div>
     </div>
   </div>
+
+
+
 
 
 
