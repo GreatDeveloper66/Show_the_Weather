@@ -21,6 +21,11 @@ var City;
 var State;
 var weatherSummary;
 
+var forecast = [{currentTempF: 0, currentTempC: 0}
+{sunrise: 0,sunset: 0, precipChance: 0, precipType: 0, tempHighF: 0, tempHighC: 0, tempLowF: 0, tempLowC: 0},
+{sunrise: 0,sunset: 0, precipChance: 0, precipType: 0, tempHighF: 0, tempHighC: 0, tempLowF: 0, tempLowC: 0},
+{sunrise: 0,sunset: 0, precipChance: 0, precipType: 0, tempHighF: 0, tempHighC: 0, tempLowF: 0, tempLowC: 0}];
+
 //links to wether icons
 var weather_icon;
 var weather_icon_html;
