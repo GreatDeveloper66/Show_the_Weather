@@ -81,6 +81,7 @@ $(document).ready(function() {
         City = data.results[0].address_components[2].long_name;
         State = data.results[0].address_components[5].short_name;
         $("#CityState").html(City + ", " + State);
+        $("#Locale").html(City + ", " + State);
       }
     });
   };
@@ -120,6 +121,8 @@ $(document).ready(function() {
         precipType = data.currently.precipType;
         condition = data.currently.icon;
         windSpeed = data.currently.windSpeed;
+
+        alert(data);
 
         $("#temperature").html(
           '<i class="fa fa-thermometer-full" aria-hidden="true"></i>' +
