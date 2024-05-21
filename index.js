@@ -1,14 +1,17 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 const app = express();
+const __dirname = process.cwd();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(__dirname, express.static('index.html'));
 
 app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to the API' });
+    res.sendFile(__dirname + '/index.html');
     });
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+app.listen(PORT, () => {
+    console.log('Server is running on port ${PORT}');
     });
+
