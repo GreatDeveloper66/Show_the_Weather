@@ -1,0 +1,24 @@
+{
+  "name": "show_the_weather",
+  "version": "1.0.0",
+  "description": "A simple front end weather api app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreatDeveloper66/Show_the_Weather.git"
+  },
+  "keywords": [
+    "weather",
+    "api",
+    "app"
+  ],
+  "author": "Adam Shaffer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GreatDeveloper66/Show_the_Weather/issues"
+  },
+  "homepage": "https://github.com/GreatDeveloper66/Show_the_Weather#readme"
+}
