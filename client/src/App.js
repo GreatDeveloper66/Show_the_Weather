@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import WeatherCard from './components/WeatherCard';
+import getWeatherData from './fetchServices/getWeatherDataService';
+import { AppContext } from './context/AppContext';
 
 function App() {
+  const[weatherData, setWeatherData] = useState([]);
+
+  const fetchAndUpdateWeatherData = async () => {
+    try {
+      const data = await getWeatherData();
+      setWeatherData(data);
+    } catch(error) {
+      console.error("Error fetching weather data: ", error);  
+    }
+  }
+
+  const fetchPeriodically = () => {
+    setInterval(() => {
+      fetchAndUpdateWeatherData();
+    }, 10*60*1000);
+
+}
+
+useEffect(() => {
+  fetchAndUpdateWeatherData();
+  fetchPeriodically();
+  return () => {
+    clearInterval(fetchPeriodically);
+  }
+},[]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppContext.Provider value={{weatherData, setWeatherData}}>
+      <div className="App">
+        <WeatherCard />
+      </div>
+    </AppContext.Provider>
   );
 }
 
