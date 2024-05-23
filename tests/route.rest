@@ -2,3 +2,6 @@ GET http://localhost:3000/api/weather/32.7649/-97.0657
 Content-Type: application/json
 
 
+
+
+
