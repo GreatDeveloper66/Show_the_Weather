@@ -1,4 +1,5 @@
 import React from 'react';
+import { Card, CardImg, CardBody, CardTitle, CardText } from 'react-bootstrap';
 import { AppContext } from '../context/AppContext';
 
 
@@ -7,12 +8,16 @@ const WeatherCard = () => {
         <AppContext.Consumer>
         {({weatherData}) => {
             return (
-            <div className="weather-card">
-                <h2>Weather Card</h2>
-                <div className="weather-card__content">
-                <p>{weatherData}</p>
-                </div>
-            </div>
+            <Card>
+                <CardImg variant="top" src={weatherData.icon} />
+                <CardBody>
+                    <CardTitle>{weatherData.city}</CardTitle>
+                    <CardText>{weatherData.description}</CardText>
+                    <CardText>{weatherData.temp}°C</CardText>
+                    <CardText>Low: {weatherData.low} </CardText>
+                    <CardText>High: {weatherData.high} </CardText>
+                </CardBody>   
+            </Card>  
             )
         }}
         </AppContext.Consumer>
