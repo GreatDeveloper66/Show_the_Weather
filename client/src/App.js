@@ -1,36 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import WeatherCard from './components/WeatherCard';
-import getWeatherData from './fetchServices/getWeatherDataService';
 import { AppContext } from './context/AppContext';
+import useWeatherData from './hooks/useWeatherData';
 
 function App() {
-  const[weatherData, setWeatherData] = useState([]);
+  const [weatherData, setWeatherData] = React.useState({
+    city: 'City',
+    description: 'Description',
+    temp: 'Temp',
+    low: 'Low',
+    high: 'High',
+    icon: 'Icon',
+  });
 
-  const fetchAndUpdateWeatherData = async () => {
-    try {
-      const data = await getWeatherData();
-      setWeatherData(data);
-    } catch(error) {
-      console.error("Error fetching weather data: ", error);  
-    }
-  }
+  useWeatherData();
 
-  const fetchPeriodically = () => {
-    setInterval(() => {
-      fetchAndUpdateWeatherData();
-    }, 10*60*1000);
-
-}
-
-useEffect(() => {
-  fetchAndUpdateWeatherData();
-  fetchPeriodically();
-  return () => {
-    clearInterval(fetchPeriodically);
-  }
-},[]);
   return (
-    <AppContext.Provider value={{weatherData, setWeatherData}}>
+    <AppContext.Provider value={{ weatherData, setWeatherData }}>
       <div className="App">
         <WeatherCard />
       </div>

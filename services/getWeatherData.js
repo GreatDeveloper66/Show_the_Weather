@@ -15,9 +15,9 @@ const getWeatherData = async (latitude, longitude) => {
         }
 
         const weatherDataJSON = await response.json();
-        const { temp, conditions, tempmax, tempmin } = weatherDataJSON.days[0];
+        const { temp, conditions, tempmax, tempmin, description } = weatherDataJSON.days[0];
 
-        return { today, temperature: temp, conditions, high: tempmax, low: tempmin };
+        return { today, temperature: temp, conditions, high: tempmax, low: tempmin, description };
     } catch (error) {
         console.error('Error fetching weather data:', error);
         return { error: 'Failed to fetch weather data' };
